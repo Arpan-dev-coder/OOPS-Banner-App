@@ -3,26 +3,33 @@ public class OOPSBannerApp {
 
     public static void main(String[] args) {
 
-        // Line 1
-        System.out.println("  *****  " + "  *****  " + "  ****** " + "  ****** ");
+        // Create String array to hold 7 banner lines
+        String[] lines = new String[7];
 
-        // Line 2
-        System.out.println(" **   ** " + " **   ** " + " **   ** " + " **      ");
+        // Populate each line using String.join()
+        lines[0] = String.join("",
+                "  *****  ", "  *****  ", "  ****** ", "  ****** ");
 
-        // Line 3
-        System.out.println(" **   ** " + " **   ** " + " **   ** " + " **      ");
+        lines[1] = String.join("",
+                " **   ** ", " **   ** ", " **   ** ", " **      ");
 
-        // Line 4
-        System.out.println(" **   ** " + " **   ** " + " ******  " + "  *****  ");
+        lines[2] = String.join("",
+                " **   ** ", " **   ** ", " **   ** ", " **      ");
 
-        // Line 5
-        System.out.println(" **   ** " + " **   ** " + " **      " + "       **");
+        lines[3] = String.join("",
+                " **   ** ", " **   ** ", " ******  ", "  *****  ");
 
-        // Line 6
-        System.out.println(" **   ** " + " **   ** " + " **      " + " **    **");
+        lines[4] = String.join("",
+                " **   ** ", " **   ** ", " **      ", "       **");
 
-        // Line 7
-        System.out.println("  *****  " + "  *****  " + " **      " + "  ****** ");
+        lines[5] = String.join("",
+                " **   ** ", " **   ** ", " **      ", " **    **");
 
+        lines[6] = String.join("",
+                "  *****  ", "  *****  ", " **      ", "  ****** ");
+
+        for (String line : lines) {
+            System.out.println(line);
+        }
     }
 }
