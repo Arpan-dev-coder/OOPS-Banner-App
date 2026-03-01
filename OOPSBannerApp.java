@@ -1,70 +1,131 @@
-/**
- * OOPSBannerApp UC6 – OOPS Banner Application (Use Case 6)
- *
- * This use case extends UC5 by implementing a modular approach
- * using static helper methods to generate each letter pattern.
- * This follows the DRY principle and improves maintainability.
- *
- * @author Arpan
- * @version 6.0
- */
 
 public class OOPSBannerApp {
 
-    // Method to generate the pattern for letter 'O'
-    public static String[] getOPattern() {
-        return new String[] {
-                "  *****  ",
-                " **   ** ",
-                " **   ** ",
-                " **   ** ",
-                " **   ** ",
-                " **   ** ",
-                "  *****  "
+    /**
+     * Inner static class to store character and its ASCII pattern
+     */
+    static class CharacterPatternMap {
+
+        private char character;
+        private String[] pattern;
+
+        /**
+         * Constructor
+         * @param character the character to map
+         * @param pattern ASCII art pattern
+         */
+        public CharacterPatternMap(char character, String[] pattern) {
+            this.character = character;
+            this.pattern = pattern;
+        }
+
+        /**
+         * @return mapped character
+         */
+        public char getCharacter() {
+            return character;
+        }
+
+        /**
+         * @return ASCII pattern
+         */
+        public String[] getPattern() {
+            return pattern;
+        }
+    }
+
+    /**
+     * Create and initialize pattern mappings
+     */
+    public static CharacterPatternMap[] createCharacterPatternMaps() {
+
+        return new CharacterPatternMap[] {
+
+            new CharacterPatternMap('O', new String[] {
+                    "  *****  ",
+                    " **   ** ",
+                    " **   ** ",
+                    " **   ** ",
+                    " **   ** ",
+                    " **   ** ",
+                    "  *****  "
+            }),
+
+            new CharacterPatternMap('P', new String[] {
+                    " ******  ",
+                    " **   ** ",
+                    " **   ** ",
+                    " ******  ",
+                    " **      ",
+                    " **      ",
+                    " **      "
+            }),
+
+            new CharacterPatternMap('S', new String[] {
+                    "  ****** ",
+                    " **      ",
+                    " **      ",
+                    "  *****  ",
+                    "       **",
+                    " **    **",
+                    "  ****** "
+            }),
+
+            new CharacterPatternMap(' ', new String[] {
+                    "          ",
+                    "          ",
+                    "          ",
+                    "          ",
+                    "          ",
+                    "          ",
+                    "          "
+            })
         };
     }
 
-    // Method to generate the pattern for letter 'P'
-    public static String[] getPPattern() {
-        return new String[] {
-                " ******  ",
-                " **   ** ",
-                " **   ** ",
-                " ******  ",
-                " **      ",
-                " **      ",
-                " **      "
-        };
+    /**
+     * Retrieve pattern for a given character
+     */
+    public static String[] getCharacterPattern(char ch, CharacterPatternMap[] charMaps) {
+
+        for (CharacterPatternMap map : charMaps) {
+            if (map.getCharacter() == ch) {
+                return map.getPattern();
+            }
+        }
+
+        // fallback to space if not found
+        return getCharacterPattern(' ', charMaps);
     }
 
-    // Method to generate the pattern for letter 'S'
-    public static String[] getSPattern() {
-        return new String[] {
-                "  ****** ",
-                " **      ",
-                " **      ",
-                "  *****  ",
-                "       **",
-                " **    **",
-                "  ****** "
-        };
+    /**
+     * Print message as banner
+     */
+    public static void printMessage(String message, CharacterPatternMap[] charMaps) {
+
+        for (int line = 0; line < 7; line++) {
+
+            StringBuilder builder = new StringBuilder();
+
+            for (int i = 0; i < message.length(); i++) {
+
+                String[] pattern = getCharacterPattern(message.charAt(i), charMaps);
+                builder.append(pattern[line]).append(" ");
+            }
+
+            System.out.println(builder.toString());
+        }
     }
 
-    // Main method
+    /**
+     * Main method
+     */
     public static void main(String[] args) {
 
-        String[] oPattern = getOPattern();
-        String[] pPattern = getPPattern();
-        String[] sPattern = getSPattern();
+        CharacterPatternMap[] charMaps = createCharacterPatternMaps();
 
-        // Assemble and print O O P S
-        for (int i = 0; i < oPattern.length; i++) {
-            System.out.println(
-                    oPattern[i] + 
-                    oPattern[i] + 
-                    pPattern[i] + 
-                    sPattern[i]
-            );
-        }
+        String message = "OOPS";
+
+        printMessage(message, charMaps);
     }
 }
