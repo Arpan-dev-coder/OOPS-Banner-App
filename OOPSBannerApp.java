@@ -1,30 +1,29 @@
 
-
 public class OOPSBannerApp {
 
     public static void main(String[] args) {
 
-        // Each line constructed using String.join()
+        // Inline array declaration and initialization
+        String[] lines = {
+                String.join("",
+                        "  *****  ", "  *****  ", "  ****** ", "  ****** "),
+                String.join("",
+                        " **   ** ", " **   ** ", " **   ** ", " **      "),
+                String.join("",
+                        " **   ** ", " **   ** ", " **   ** ", " **      "),
+                String.join("",
+                        " **   ** ", " **   ** ", " ******  ", "  *****  "),
+                String.join("",
+                        " **   ** ", " **   ** ", " **      ", "       **"),
+                String.join("",
+                        " **   ** ", " **   ** ", " **      ", " **    **"),
+                String.join("",
+                        "  *****  ", "  *****  ", " **      ", "  ****** ")
+        };
 
-        System.out.println(String.join("",
-                "  *****  ", "  *****  ", "  ****** ", "  ****** "));
-
-        System.out.println(String.join("",
-                " **   ** ", " **   ** ", " **   ** ", " **      "));
-
-        System.out.println(String.join("",
-                " **   ** ", " **   ** ", " **   ** ", " **      "));
-
-        System.out.println(String.join("",
-                " **   ** ", " **   ** ", " ******  ", "  *****  "));
-
-        System.out.println(String.join("",
-                " **   ** ", " **   ** ", " **      ", "       **"));
-
-        System.out.println(String.join("",
-                " **   ** ", " **   ** ", " **      ", " **    **"));
-
-        System.out.println(String.join("",
-                "  *****  ", "  *****  ", " **      ", "  ****** "));
+        // Enhanced for-loop to print
+        for (String line : lines) {
+            System.out.println(line);
+        }
     }
 }
