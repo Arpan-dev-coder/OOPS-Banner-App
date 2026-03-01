@@ -1,35 +1,30 @@
 
+
 public class OOPSBannerApp {
 
     public static void main(String[] args) {
 
-        // Create String array to hold 7 banner lines
-        String[] lines = new String[7];
+        // Each line constructed using String.join()
 
-        // Populate each line using String.join()
-        lines[0] = String.join("",
-                "  *****  ", "  *****  ", "  ****** ", "  ****** ");
+        System.out.println(String.join("",
+                "  *****  ", "  *****  ", "  ****** ", "  ****** "));
 
-        lines[1] = String.join("",
-                " **   ** ", " **   ** ", " **   ** ", " **      ");
+        System.out.println(String.join("",
+                " **   ** ", " **   ** ", " **   ** ", " **      "));
 
-        lines[2] = String.join("",
-                " **   ** ", " **   ** ", " **   ** ", " **      ");
+        System.out.println(String.join("",
+                " **   ** ", " **   ** ", " **   ** ", " **      "));
 
-        lines[3] = String.join("",
-                " **   ** ", " **   ** ", " ******  ", "  *****  ");
+        System.out.println(String.join("",
+                " **   ** ", " **   ** ", " ******  ", "  *****  "));
 
-        lines[4] = String.join("",
-                " **   ** ", " **   ** ", " **      ", "       **");
+        System.out.println(String.join("",
+                " **   ** ", " **   ** ", " **      ", "       **"));
 
-        lines[5] = String.join("",
-                " **   ** ", " **   ** ", " **      ", " **    **");
+        System.out.println(String.join("",
+                " **   ** ", " **   ** ", " **      ", " **    **"));
 
-        lines[6] = String.join("",
-                "  *****  ", "  *****  ", " **      ", "  ****** ");
-
-        for (String line : lines) {
-            System.out.println(line);
-        }
+        System.out.println(String.join("",
+                "  *****  ", "  *****  ", " **      ", "  ****** "));
     }
 }
